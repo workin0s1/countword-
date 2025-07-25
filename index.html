@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✅ SEO Meta Tags -->
+  <title>Free Word & Character Counter Tool | CountWords</title>
+  <meta name="description" content="Use our free word and character counter tool to count words, characters, sentences, and more. Ideal for writers, students, and SEO experts.">
+  <meta name="keywords" content="word counter, character counter, word count tool, online word counter, seo tools, count characters online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://countwords.rf.gd/">
+
+  <!-- ✅ Open Graph Tags -->
+  <meta property="og:title" content="Free Word & Character Counter Tool | CountWords">
+  <meta property="og:description" content="Quickly count words and characters with our free online tool. No login needed.">
+  <meta property="og:url" content="https://countwords.rf.gd/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://countwords.rf.gd/logo.png"> <!-- Replace with your actual image URL -->
+
+  <!-- ✅ Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Word & Character Counter Tool">
+  <meta name="twitter:description" content="Use this online tool to count words and characters instantly.">
+  <meta name="twitter:image" content="https://countwords.rf.gd/logo.png"> <!-- Replace if needed -->
+
+  <!-- ✅ Favicon (optional) -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Word Counter & Character Counter Tool - Count words, characters, sentences, paragraphs. Calculate reading time, analyze keyword density, convert text case. Free online writing tool.">
+    <meta name="keywords" content="word counter, character counter, text counter, word count tool, writing tool, sentence counter, paragraph counter, reading time calculator, keyword density, case converter">
+    <meta name="author" content="WordCount Pro">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="WordCount Pro - Advanced Word & Character Counter Tool">
+    <meta property="og:description" content="Professional word counter with live analytics, keyword density analyzer, case converter, and more. Perfect for writers, students, and content creators.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordcountpro.com">
+    <meta property="og:image" content="https://wordcountpro.com/og-image.png">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WordCount Pro - Advanced Word & Character Counter Tool">
+    <meta name="twitter:description" content="Professional word counter with live analytics, keyword density analyzer, case converter, and more.">
+    
+    <title>WordCount Pro - Advanced Word & Character Counter Tool | Free Online Text Analyzer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+    
+    <!-- External Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "WordCount Pro",
+        "description": "Professional word counter and text analyzer tool",
+        "url": "https://wordcountpro.com",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "WordCount Pro"
+        }
+    }
+    </script>
+    
+    <style>
+        /* Custom Dark Theme */
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --border: #475569;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(71, 85, 105, 0.3);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .keyword-bar {
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .blog-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .stat-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="glass-effect sticky top-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-edit text-3xl text-blue-400"></i>
+                <h1 class="text-2xl font-bold gradient-text">WordCount Pro</h1>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#tool" class="text-gray-300 hover:text-white transition-colors">Tool</a>
+                <a href="#features" class="text-gray-300 hover:text-white transition-colors">Features</a>
+                <a href="#blog" class="text-gray-300 hover:text-white transition-colors">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="px-6 py-16 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">
+                Advanced Word & Character Counter
+            </h1>
+            <p class="text-xl text-gray-300 mb-8">
+                Professional text analysis tool with live counting, keyword density analysis, and advanced features for writers, students, and content creators.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="btn-primary">
+                    <i class="fas fa-rocket mr-2"></i>Start Counting
+                </button>
+                <button class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors">
+                    <i class="fas fa-play mr-2"></i>Watch Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Space - Top Banner -->
+    <div class="max-w-7xl mx-auto px-6 mb-8">
+        <div class="bg-gray-800 rounded-lg p-4 text-center">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : 'dd112d5e88adf9d98a41be879d71ceb4',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/dd112d5e88adf9d98a41be879d71ceb4/invoke.js"></script>
+        </div>
+    </div>
+
+    <!-- Main Tool Section -->
+    <section id="tool" class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Text Input Area -->
+            <div class="lg:col-span-2">
+                <div class="stat-card">
+                    <div class="flex flex-wrap items-center justify-between mb-4 gap-4">
+                        <h2 class="text-2xl font-bold">Text Analyzer</h2>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="btn-primary cursor-pointer">
+                                <i class="fas fa-upload mr-2"></i>Upload File
+                                <input type="file" id="fileUpload" accept=".txt" class="hidden">
+                            </label>
+                            <button id="clearText" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-trash mr-2"></i>Clear
+                            </button>
+                            <button id="copyText" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-copy mr-2"></i>Copy
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <textarea 
+                        id="textInput" 
+                        class="w-full h-80 p-4 bg-gray-800 border border-gray-600 rounded-lg resize-none focus:ring-2 focus:ring-blue-500 text-white" 
+                        placeholder="Start typing or paste your text here to analyze..."></textarea>
+                    
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <button id="downloadTxt" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                            <i class="fas fa-download mr-2"></i>Download TXT
+                        </button>
+                        <button id="downloadPdf" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+                            <i class="fas fa-file-pdf mr-2"></i>Download PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Statistics -->
+            <div class="space-y-6">
+                <!-- Basic Stats -->
+                <div class="stat-card">
+                    <h3 class="text-xl font-bold mb-4 text-center">Live Statistics</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Words:</span>
+                            <span id="wordCount" class="font-bold text-blue-400">0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Characters (with spaces):</span>
+                            <span id="charCountWithSpaces" class="font-bold text-green-400">0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Characters (without spaces):</span>
+                            <span id="charCountWithoutSpaces" class="font-bold text-yellow-400">0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Sentences:</span>
+                            <span id="sentenceCount" class="font-bold text-purple-400">0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Paragraphs:</span>
+                            <span id="paragraphCount" class="font-bold text-red-400">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Time Analysis -->
+                <div class="stat-card">
+                    <h3 class="text-xl font-bold mb-4 text-center">Time Analysis</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Reading Time:</span>
+                            <span id="readingTime" class="font-bold text-blue-400">0 min</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Speaking Time:</span>
+                            <span id="speakingTime" class="font-bold text-green-400">0 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ad Space - Side Banner -->
+                <div class="stat-card">
+                    <script async="async" data-cfasync="false" src="//pl27257046.profitableratecpm.com/d3d29ee1b1afc8e37bf007702c8616c5/invoke.js"></script>
+                    <div id="container-d3d29ee1b1afc8e37bf007702c8616c5"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Features -->
+    <section id="features" class="max-w-7xl mx-auto px-6 py-12">
+        <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Advanced Features</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Case Converter -->
+            <div class="stat-card">
+                <h3 class="text-xl font-bold mb-4">Case Converter</h3>
+                <div class="grid grid-cols-2 gap-2 mb-4">
+                    <button id="upperCase" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded transition-colors">UPPERCASE</button>
+                    <button id="lowerCase" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded transition-colors">lowercase</button>
+                    <button id="titleCase" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded transition-colors">Title Case</button>
+                    <button id="sentenceCase" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded transition-colors">Sentence case</button>
+                </div>
+            </div>
+
+            <!-- Keyword Density Analyzer -->
+            <div class="stat-card">
+                <h3 class="text-xl font-bold mb-4">Top Keywords</h3>
+                <div class="flex items-center mb-4">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="excludeStopWords" class="mr-2" checked>
+                        <span class="text-sm">Exclude stop words</span>
+                    </label>
+                </div>
+                <div id="keywordList" class="space-y-2 max-h-48 overflow-y-auto">
+                    <p class="text-gray-400 text-sm">Start typing to see keyword analysis...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="max-w-7xl mx-auto px-6 py-16">
+        <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Writing & Content Tips</h2>
+        <p class="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
+            Discover expert tips, writing techniques, and content strategies to improve your writing skills and boost your productivity.
+        </p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog Post 1 -->
+            <article class="blog-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-pen-nib text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">How to Write Compelling Content That Ranks</h3>
+                    <p class="text-gray-300 mb-4">Learn the essential techniques for creating content that engages readers and performs well in search engines. Discover keyword optimization strategies and content structure tips.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">5 min read</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Read More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="blog-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-clock text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Optimal Word Count for Different Content Types</h3>
+                    <p class="text-gray-300 mb-4">Discover the ideal word counts for blog posts, social media, emails, and academic papers. Learn how length affects engagement and SEO performance.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">7 min read</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Read More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="blog-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-search text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Keyword Density: Finding the Perfect Balance</h3>
+                    <p class="text-gray-300 mb-4">Master keyword density optimization without over-stuffing. Learn natural keyword integration techniques and avoid Google penalties.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">6 min read</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Read More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 4 -->
+            <article class="blog-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Academic Writing: Word Count Guidelines</h3>
+                    <p class="text-gray-300 mb-4">Essential word count requirements for essays, research papers, and dissertations. Learn how to meet academic standards while maintaining quality.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">8 min read</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Read More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 5 -->
+            <article class="blog-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Speed Writing Techniques for Content Creators</h3>
+                    <p class="text-gray-300 mb-4">Boost your writing productivity with proven speed writing methods. Learn time-saving techniques and tools for faster content creation.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">4 min read</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Read More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 6 -->
+            <article class="blog-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Mobile-First Content: Writing for Small Screens</h3>
+                    <p class="text-gray-300 mb-4">Optimize your content for mobile readers. Learn formatting, word count, and engagement strategies for mobile-first content.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">5 min read</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Read More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 7 -->
+            <article class="blog-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Emotional Writing: Connecting with Your Audience</h3>
+                    <p class="text-gray-300 mb-4">Create emotional connections through your writing. Learn techniques to evoke feelings and build lasting relationships with readers.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">6 min read</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Read More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 8 -->
+            <article class="blog-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Content Analytics: Measuring Writing Success</h3>
+                    <p class="text-gray-300 mb-4">Track and analyze your content performance. Learn key metrics, tools, and strategies to improve your writing ROI.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">9 min read</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Read More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 9 -->
+            <article class="blog-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Collaborative Writing: Tools and Best Practices</h3>
+                    <p class="text-gray-300 mb-4">Master team writing projects with collaboration tools and workflows. Learn version control, editing processes, and team communication.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">7 min read</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Read More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 10 -->
+            <article class="blog-card">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI Writing Tools: Enhancing Human Creativity</h3>
+                    <p class="text-gray-300 mb-4">Leverage AI writing assistants while maintaining authenticity. Learn to use AI tools effectively without losing your unique voice.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">8 min read</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Read More →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-700 px-6 py-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-edit text-2xl text-blue-400"></i>
+                        <h3 class="text-xl font-bold gradient-text">WordCount Pro</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        Professional word counting and text analysis tool for writers, students, and content creators.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Tools</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Word Counter</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Character Counter</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Case Converter</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Keyword Analyzer</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#blog" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Writing Tips</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">SEO Guide</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Content Strategy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-pinterest text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+                © 2024 WordCount Pro. All rights reserved. | 
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a> | 
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let textInput = document.getElementById('textInput');
+        let autoSaveInterval;
+
+        // Stop words for keyword analysis
+        const stopWords = new Set([
+            'the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'i', 'it', 'for', 'not', 'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 'by', 'from', 'they', 'we', 'say', 'her', 'she', 'or', 'an', 'will', 'my', 'one', 'all', 'would', 'there', 'their', 'what', 'so', 'up', 'out', 'if', 'about', 'who', 'get', 'which', 'go', 'me', 'when', 'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know', 'take', 'people', 'into', 'year', 'your', 'good', 'some', 'could', 'them', 'see', 'other', 'than', 'then', 'now', 'look', 'only', 'come', 'its', 'over', 'think', 'also', 'back', 'after', 'use', 'two', 'how', 'our', 'work', 'first', 'well', 'way', 'even', 'new', 'want', 'because', 'any', 'these', 'give', 'day', 'most', 'us'
+        ]);
+
+        // Initialize the app
+        function initApp() {
+            loadSavedText();
+            updateStats();
+            setupEventListeners();
+            startAutoSave();
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            textInput.addEventListener('input', function() {
+                updateStats();
+                updateKeywordAnalysis();
+            });
+
+            textInput.addEventListener('paste', function() {
+                setTimeout(() => {
+                    updateStats();
+                    updateKeywordAnalysis();
+                }, 100);
+            });
+
+            // File upload
+            document.getElementById('fileUpload').addEventListener('change', handleFileUpload);
+
+            // Buttons
+            document.getElementById('clearText').addEventListener('click', clearText);
+            document.getElementById('copyText').addEventListener('click', copyText);
+            document.getElementById('downloadTxt').addEventListener('click', downloadTxt);
+            document.getElementById('downloadPdf').addEventListener('click', downloadPdf);
+
+            // Case converters
+            document.getElementById('upperCase').addEventListener('click', () => convertCase('upper'));
+            document.getElementById('lowerCase').addEventListener('click', () => convertCase('lower'));
+            document.getElementById('titleCase').addEventListener('click', () => convertCase('title'));
+            document.getElementById('sentenceCase').addEventListener('click', () => convertCase('sentence'));
+
+            // Exclude stop words checkbox
+            document.getElementById('excludeStopWords').addEventListener('change', updateKeywordAnalysis);
+        }
+
+        // Update all statistics
+        function updateStats() {
+            const text = textInput.value;
+            
+            // Basic counts
+            const words = countWords(text);
+            const charactersWithSpaces = text.length;
+            const charactersWithoutSpaces = text.replace(/\s/g, '').length;
+            const sentences = countSentences(text);
+            const paragraphs = countParagraphs(text);
+
+            // Time calculations
+            const readingTime = Math.ceil(words / 200); // 200 words per minute
+            const speakingTime = Math.ceil(words / 140); // 140 words per minute average
+
+            // Update DOM
+            document.getElementById('wordCount').textContent = words.toLocaleString();
+            document.getElementById('charCountWithSpaces').textContent = charactersWithSpaces.toLocaleString();
+            document.getElementById('charCountWithoutSpaces').textContent = charactersWithoutSpaces.toLocaleString();
+            document.getElementById('sentenceCount').textContent = sentences.toLocaleString();
+            document.getElementById('paragraphCount').textContent = paragraphs.toLocaleString();
+            document.getElementById('readingTime').textContent = readingTime > 0 ? `${readingTime} min` : '0 min';
+            document.getElementById('speakingTime').textContent = speakingTime > 0 ? `${speakingTime} min` : '0 min';
+        }
+
+        // Count words
+        function countWords(text) {
+            if (!text.trim()) return 0;
+            return text.trim().split(/\s+/).length;
+        }
+
+        // Count sentences
+        function countSentences(text) {
+            if (!text.trim()) return 0;
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            return sentences.length;
+        }
+
+        // Count paragraphs
+        function countParagraphs(text) {
+            if (!text.trim()) return 0;
+            const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim().length > 0);
+            return paragraphs.length;
+        }
+
+        // Update keyword analysis
+        function updateKeywordAnalysis() {
+            const text = textInput.value.toLowerCase();
+            const excludeStopWords = document.getElementById('excludeStopWords').checked;
+            
+            if (!text.trim()) {
+                document.getElementById('keywordList').innerHTML = '<p class="text-gray-400 text-sm">Start typing to see keyword analysis...</p>';
+                return;
+            }
+
+            // Extract words and count frequency
+            const words = text.match(/\b[a-zA-Z]+\b/g) || [];
+            const wordCount = {};
+            const totalWords = words.length;
+
+            words.forEach(word => {
+                if (!excludeStopWords || !stopWords.has(word)) {
+                    wordCount[word] = (wordCount[word] || 0) + 1;
+                }
+            });
+
+            // Sort by frequency and get top 10
+            const sortedWords = Object.entries(wordCount)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 10);
+
+            // Generate HTML
+            let html = '';
+            if (sortedWords.length === 0) {
+                html = '<p class="text-gray-400 text-sm">No keywords found...</p>';
+            } else {
+                sortedWords.forEach(([word, count]) => {
+                    const percentage = ((count / totalWords) * 100).toFixed(1);
+                    const barWidth = Math.min((count / sortedWords[0][1]) * 100, 100);
+                    
+                    html += `
+                        <div class="keyword-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-sm font-medium">${word}</span>
+                                <span class="text-xs text-gray-400">${count} (${percentage}%)</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="keyword-bar" style="width: ${barWidth}%"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            document.getElementById('keywordList').innerHTML = html;
+        }
+
+        // Handle file upload
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file && file.type === 'text/plain') {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    textInput.value = e.target.result;
+                    updateStats();
+                    updateKeywordAnalysis();
+                    saveText();
+                };
+                reader.readAsText(file);
+            } else {
+                alert('Please select a valid .txt file');
+            }
+        }
+
+        // Clear text
+        function clearText() {
+            if (confirm('Are you sure you want to clear all text?')) {
+                textInput.value = '';
+                updateStats();
+                updateKeywordAnalysis();
+                saveText();
+            }
+        }
+
+        // Copy text to clipboard
+        function copyText() {
+            if (!textInput.value.trim()) {
+                alert('No text to copy');
+                return;
+            }
+            
+            textInput.select();
+            textInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            
+            // Show feedback
+            const btn = document.getElementById('copyText');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+            btn.classList.remove('bg-green-600', 'hover:bg-green-700');
+            btn.classList.add('bg-green-500');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.remove('bg-green-500');
+                btn.classList.add('bg-green-600', 'hover:bg-green-700');
+            }, 2000);
+        }
+
+        // Download as TXT
+        function downloadTxt() {
+            if (!textInput.value.trim()) {
+                alert('No text to download');
+                return;
+            }
+            
+            const blob = new Blob([textInput.value], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'wordcount-text.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Download as PDF
+        function downloadPdf() {
+            if (!textInput.value.trim()) {
+                alert('No text to download');
+                return;
+            }
+            
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Add title
+            doc.setFontSize(16);
+            doc.text('WordCount Pro - Text Analysis', 20, 20);
+            
+            // Add stats
+            doc.setFontSize(12);
+            const stats = [
+                `Words: ${document.getElementById('wordCount').textContent}`,
+                `Characters (with spaces): ${document.getElementById('charCountWithSpaces').textContent}`,
+                `Characters (without spaces): ${document.getElementById('charCountWithoutSpaces').textContent}`,
+                `Sentences: ${document.getElementById('sentenceCount').textContent}`,
+                `Paragraphs: ${document.getElementById('paragraphCount').textContent}`,
+                `Reading Time: ${document.getElementById('readingTime').textContent}`,
+                `Speaking Time: ${document.getElementById('speakingTime').textContent}`
+            ];
+            
+            let yPos = 40;
+            stats.forEach(stat => {
+                doc.text(stat, 20, yPos);
+                yPos += 10;
+            });
+            
+            // Add text content
+            doc.text('Content:', 20, yPos + 10);
+            const splitText = doc.splitTextToSize(textInput.value, 170);
+            doc.text(splitText, 20, yPos + 25);
+            
+            doc.save('wordcount-analysis.pdf');
+        }
+
+        // Case conversion functions
+        function convertCase(caseType) {
+            if (!textInput.value.trim()) {
+                alert('No text to convert');
+                return;
+            }
+            
+            let convertedText = textInput.value;
+            
+            switch(caseType) {
+                case 'upper':
+                    convertedText = textInput.value.toUpperCase();
+                    break;
+                case 'lower':
+                    convertedText = textInput.value.toLowerCase();
+                    break;
+                case 'title':
+                    convertedText = textInput.value.replace(/\w\S*/g, (txt) => 
+                        txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+                    break;
+                case 'sentence':
+                    convertedText = textInput.value.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, 
+                        (c) => c.toUpperCase());
+                    break;
+            }
+            
+            textInput.value = convertedText;
+            updateStats();
+            updateKeywordAnalysis();
+            saveText();
+        }
+
+        // Auto-save functionality
+        function startAutoSave() {
+            autoSaveInterval = setInterval(saveText, 5000); // Save every 5 seconds
+        }
+
+        function saveText() {
+            localStorage.setItem('wordcountpro_text', textInput.value);
+        }
+
+        function loadSavedText() {
+            const savedText = localStorage.getItem('wordcountpro_text');
+            if (savedText) {
+                textInput.value = savedText;
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', function() {
+            if (autoSaveInterval) {
+                clearInterval(autoSaveInterval);
+            }
+            saveText();
+        });
+    </script>
+</body>
+</html>
